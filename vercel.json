@@ -1,0 +1,14 @@
+{
+    "builds":[
+        {
+            "src": "KanjiUploader/__main__.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes":[
+        {
+            "src": "/(.*)",
+            "dest": "KanjiUploader/__main__.py"
+        }
+    ]
+}
