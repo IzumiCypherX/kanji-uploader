@@ -13,7 +13,6 @@ class KanjiToday:
         try:
             grade = collection.find_one({"_id": "curr_grade"})['grade']
         except TypeError:
-        # if grade is None:
             collection.insert_one({"_id": "curr_grade", "grade": 1})
             grade = 1
         
@@ -27,10 +26,6 @@ class KanjiToday:
         response = json.loads(response.text)
 
         l = [ i['kanji']['character'] for i in response ]
-        # for i in response:
-        #     l.append(i['kanji']['character'])
-        print(l)
-
 
         collection.insert_one({"_id": "kanjichars", "characters": l, "now_at": 0})
 
@@ -43,10 +38,6 @@ class KanjiToday:
         Reads the file `kanji.txt` created by `make_kanji_file` and assigns the first character to be posted.\n
         After the first character is assigned, it is removed from the file."""
 
-        # self.character = collection.find_one({"_id": "kanjichars"})['characters']
-        # print(self.character)
-        # all_chars = []
-        # if not self.character:
         all_chars = []
         now_at = 0
         try:
@@ -55,12 +46,13 @@ class KanjiToday:
             resp = collection.find_one({"_id": "kanjichars"})
             all_chars = resp['characters']
             now_at = resp['now_at']
-            self.character = all_chars[now_at]
-
-        collection.update_one({"_id": "kanjichars"}, {"$set": {"now_at": now_at + 1}})
-
-        # get the details about the kanji
-        self.get_kanji_details(self.character)
+            try:
+                self.character = all_chars[now_at]
+                collection.update_one({"_id": "kanjichars"}, {"$set": {"now_at": now_at + 1}})
+                self.get_kanji_details(self.character)
+            except IndexError:
+                collection.delete_one({"_id": "kanjichars"})
+                pass
 
 
     def get_kanji_details(self, kanji):
