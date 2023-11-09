@@ -53,6 +53,6 @@ Contributions and feedback are welcome. Please open an issue or submit a pull re
 
 ## Contact
 
-For questions or support, contact me on [Gmail](mailto:sidhartharao1@.com) or [Telegram](https://telegram.dog/TheSidharthaRao)
+For questions or support, contact me on [Gmail](mailto:sidhartharao1@gmail.com) or [Telegram](https://telegram.dog/TheSidharthaRao)
 
 Enjoy automating your content uploads with this Telegram bot!
