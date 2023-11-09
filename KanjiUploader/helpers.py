@@ -2,7 +2,6 @@ import requests, json, pymongo.errors
 
 from KanjiUploader import KANJI_API, API_KEY, collection
 
-
 class KanjiToday:
     """Base Class for Kanji Uploading.\n
     """
@@ -64,8 +63,6 @@ class KanjiToday:
         }
         response = requests.get(url=KANJI_API+'/kanji/'+str(kanji), headers=headers)
         response = json.loads(response.text)
-        print(kanji)
-        print(response)
         self.character = kanji
         self.meanings = response['meaning']
         self.stroke_count = response['kstroke']
