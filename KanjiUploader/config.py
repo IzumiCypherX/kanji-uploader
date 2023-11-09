@@ -1,7 +1,7 @@
 import os
 import dotenv
 
-dotenv.load_dotenv("config.env")
+# dotenv.load_dotenv("config.env") # IF ON VERCEL, REMOVE THIS LINE
 
 KANJI_API = os.environ.get("KANJI_API")
 API_KEY = os.environ.get("API_KEY")
