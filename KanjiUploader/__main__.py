@@ -1,4 +1,4 @@
-from KanjiUploader import DELAY, CHANNEL_ID, LOG_ID, OWNER_ID, app
+from KanjiUploader import DELAY, CHANNEL_ID, LOG_ID, OWNER_ID, app, LOGGER
 from KanjiUploader.helpers import KanjiToday
 
 from telegram import Update
@@ -57,5 +57,5 @@ if __name__ == "__main__":
     # Only Owner can start the scheduler
     app.add_handler(CommandHandler('send', send, filters=filters.User(user_id=OWNER_ID)))    
 
-    print("Starting Bot...")
+    LOGGER.info("STARTING SCHEDULER...")
     app.run_polling(allowed_updates=Update.ALL_TYPES)
