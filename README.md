@@ -4,7 +4,7 @@
 
 ## Overview
 
-This Telegram bot allows you to schedule and automate uploads from an external API to a Telegram channel. It's a convenient tool for managing content delivery to your Telegram audience without manual intervention.
+This Telegram bot allows you to schedule and automate uploads from an external API to a Telegram channel. It's a convenient tool for managing content delivery to your Telegram audience without manual intervention. You can mould the code using your own API and responses to create any kind of scheduled uploader you want! 
 
 ## Features
 
